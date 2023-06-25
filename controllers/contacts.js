@@ -48,6 +48,6 @@ module.exports = {
   getAllContacts: ctrlWrapper(getAllContacts),
   getById: ctrlWrapper(getById),
   add: ctrlWrapper(add),
-  deleteById: ctrlWrapper(deleteById),
   updateById: ctrlWrapper(updateById),
+  deleteById: ctrlWrapper(deleteById),
 };
