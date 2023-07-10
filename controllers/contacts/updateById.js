@@ -8,7 +8,7 @@ const updateById = async (req, res) => {
     new: true,
   });
   if (!newContact) {
-    throw HttpError(404, "Not Found");
+    throw HttpError(404);
   }
   res.json(newContact);
 };
