@@ -7,11 +7,13 @@ const updateSubscription = async (req, res) => {
 
   const newUser = await User.findByIdAndUpdate(_id, req.body, {
     new: true,
+    projection: "email subscription",
   });
+
   if (!newUser) {
     throw HttpError(404);
   }
-  res.json({ email: newUser.email, subscription: newUser.subscription });
+  res.json(newUser);
 };
 
 module.exports = {
