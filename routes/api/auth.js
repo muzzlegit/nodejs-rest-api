@@ -6,9 +6,10 @@ const {
   getCurrent,
   logout,
   updateSubscription,
+  updateAvatar,
 } = require("../../controllers/auth");
 
-const { validateBody, authenticate } = require("../../middlewares");
+const { validateBody, authenticate, upload } = require("../../middlewares");
 const { userSchemas } = require("../../models");
 
 const router = express.Router();
@@ -28,6 +29,13 @@ router.patch(
     message: "invalid subscription type",
   }),
   updateSubscription
+);
+
+router.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatarURL"),
+  updateAvatar
 );
 
 module.exports = router;
