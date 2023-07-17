@@ -1,4 +1,4 @@
-const { Contact } = require("../../models/contact.js");
+const { Contact } = require("../../models");
 
 const { HttpError, ctrlWrapper } = require("../../helpers");
 
@@ -8,7 +8,7 @@ const updateStatusContact = async (req, res) => {
     new: true,
   });
   if (!newContact) {
-    throw HttpError(404, "Not Found");
+    throw HttpError(404);
   }
   res.json(newContact);
 };
